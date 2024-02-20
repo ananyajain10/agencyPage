@@ -1,9 +1,15 @@
-import Image from "next/image";
+
 import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
 export default function Home() {
   return (
-    <main className="p-0">
+    <div className=" bg-sky-100">
+      <main className="">
       <Navbar/>
-    </main>
+      <Hero/>
+      
+      </main>
+      
+    </div>
   );
 }
