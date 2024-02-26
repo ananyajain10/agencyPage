@@ -21,8 +21,8 @@ const Footer = (props: Props) => {
              TechDice Pvt Ltd <br />
               New Delhi <br />
               India <br /> <br />
-              <strong>Phone:</strong> +91 1234567890 <br />
-              <strong>Email:</strong> techdice@gmail.com
+              <strong>Phone:</strong> <p className=""> <span> +917387690732 </span> <br /> <span className="">  +917380612016  </span> </p> <br />
+              <strong>Email:</strong>  support@techdice.in
              </p>
             </div>
             <div className="mb-5">
@@ -53,6 +53,19 @@ const Footer = (props: Props) => {
             </ul>
             </div>
           </div>
+        </div>
+        <div className="w-full text-gray-50 px-10">
+         <div>
+            <div className="text-center">
+                <div>
+                    Copyright <strong><span>TechDice</span></strong>. All Rights Reserved
+                </div>
+                <div>
+                    Designed by <strong><span  className="text-white">TechDice</span></strong>
+                </div>
+            </div>
+         </div>
+
         </div>
       </div>
     </footer>
