@@ -40,7 +40,7 @@ const Navbar = () => {
           {/* logo  */}
         <section className='flex items-center '>
         <MdMenu className= "text-3xl cursor-pointer lg:hidden" onClick = {() => (setMenu(true), console.log(menu))}/>
-        <Link href={"/"} className='text-4xl px-6'> TechDice.in</Link>
+        <Link href={"/"} className='text-4xl px-6'> TechDice</Link>
         <div className='flex items-center gap-4 px-8'>
           {navLinks.map((d, i) => {
                 return  <Link key={i} href={d.link} className='hidden p-3 rounded lg:block text-2xl text-grey-20  hover:bg-blue-400 hover:text-white transition-all delay-0 duration-300 ease-out  z-40 transform '>{d.title}</Link>
