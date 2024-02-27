@@ -8,12 +8,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useAutoAnimate } from '@formkit/auto-animate/react'
 import logo from '@/assets/logo2.png'
+import { motion } from 'framer-motion'
 
 
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
-    const [animationParent] = useAutoAnimate()
+    
     
     // navlink 
 
@@ -37,16 +38,18 @@ const Navbar = () => {
     ]
   return (
    
-        <nav 
-      className='relative container mx-auto bg-white	 p-6 rounded-full border border-black'>
+        <motion.nav 
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+      className=' font-sans relative container mx-auto bg-white rounded-full border border-black'>
           {/* logo  */}
 
         <section className='flex items-center  justify-between mx-auto'>
             
         <MdMenu className= "text-3xl cursor-pointer lg:hidden" onClick = {() => (setMenu(true), console.log(menu))}/>
-        <div className='flex'>
+        <div className='flex px-3'>
         <Image src={logo} alt='logo' height={50} width={50} className='cursor-pointer'/>
-        <Link href={"/"} className='text-4xl px-6'> TechDice</Link>
+        <Link href={"/"} className='text-5xl px-6 hover:text-white hover:bg-gradient-to-r from-cyan-500 to-blue-500 translate-x-0'> TechDice</Link>
         </div>
        
         <div className='flex items-center gap-4 px-9'>
@@ -54,7 +57,7 @@ const Navbar = () => {
                 return  <Link key={i} href={d.link} className='hidden p-3 rounded lg:block text-2xl text-grey-20  hover:bg-blue-400 hover:text-white transition-all delay-0 duration-300 ease-out  z-40 transform '>{d.title}</Link>
 
           })}
-           <button className=' hidden md:flex p-3 rounded-full bg-blue-600 lg:block text-1xl text-grey-20 hover:bg-blue-400 hover:text-white transition-all  duration-500 ease-in-out z-40 transform  border border-black'>
+           <button className=' hidden md:flex p-3 rounded-full  bg-blue-600 lg:block text-1xl text-grey-20 hover:bg-blue-400 hover:text-white transition-all  duration-500 ease-in-out z-40 transform  border border-black'>
                 Upgrade</button>
 
         </div>
@@ -79,7 +82,7 @@ const Navbar = () => {
        
         
         </section>
-    </nav>
+    </motion.nav>
 
    
   )

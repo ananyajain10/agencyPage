@@ -1,7 +1,9 @@
+"use client"
 import React from "react";
-
+import {motion  } from 'framer-motion'
 
 const About = () => {
+  
   const AssistanceWays = [
     {
       item: "01",
@@ -26,11 +28,14 @@ const About = () => {
   ];
   return (
     <section id="features">
-      <div className="container flex flex-col px-4 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row">
+      <div className=" font-sans container flex flex-col px-4 mx-auto mt-5 space-y-12 md:space-y-0 md:flex-row">
         <div className="flex flex-col space-y-12 md:w-1/2">
-          <h2 className="text-4xl font-bold text-center mx-w-md md:text-left">
+          <motion.h2 
+           initial={{ opacity: 0 }}
+           whileInView={{ opacity: 1 }}
+          className="text-4xl font-bold text-center mx-w-md md:text-left">
             Learn how we will help you to reach your goals
-          </h2>
+          </motion.h2>
           <p className="text-center mx-w-sm md:text-left">
             We provide a wide range of services to help you grow your business.
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae
