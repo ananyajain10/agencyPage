@@ -27,8 +27,8 @@ const About = () => {
     },
   ];
   return (
-    <section id="features">
-      <div className=" font-sans container flex flex-col px-4 mx-auto mt-5 space-y-12 md:space-y-0 md:flex-row">
+    <section id="features" className="mt-20 w-screen px-5">
+      <div className=" font-sans container flex flex-col px-4 mx-auto  space-y-12 md:space-y-0 md:flex-row">
         <div className="flex flex-col space-y-12 md:w-1/2">
           <motion.h2 
            initial={{ opacity: 0 }}

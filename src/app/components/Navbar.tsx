@@ -6,7 +6,6 @@ import { IoClose } from "react-icons/io5";
 import clsx from "clsx";
 import Link from 'next/link';
 import Image from 'next/image';
-import { useAutoAnimate } from '@formkit/auto-animate/react'
 import logo from '@/assets/logo2.png'
 import { motion } from 'framer-motion'
 
@@ -41,10 +40,10 @@ const Navbar = () => {
         <motion.nav 
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-      className=' font-sans relative container mx-auto bg-white rounded-full border border-black'>
+      className=' font-sans  fixed top-0 py-8 backdrop-blur-sm bg-black '>
           {/* logo  */}
 
-        <section className='flex items-center  justify-between mx-auto'>
+        <section className='flex top-0 w-screen   justify-between '>
             
         <MdMenu className= "text-3xl cursor-pointer lg:hidden" onClick = {() => (setMenu(true), console.log(menu))}/>
         <div className='flex px-3'>
@@ -67,13 +66,13 @@ const Navbar = () => {
 
         </section>
         {/* menu */}
-        <section className={clsx('fixed w-full text-white h-full lg:hidden bg-black/80 backdrop-blur-sm top-0 right-0 transition-all duration-300 ease-in-out z-40 transform',
+        <section className={clsx('fixed w-full text-white h-full lg:hidden top-0 right-0 transition-all duration-300 ease-in-out z-40 transform',
         menu ? "-translate-x-0" : "-translate-x-full")}>
-        <section  className='absolute  p-8 gap-8 z-50 w-56 h-screen flex flex-col top-0 left-0 '>
+        <section  className='absolute z-400 bg-gradient-to-r  from-blue-500 to-green-500  p-8 gap-8  w-56 h-screen flex flex-col top-0 left-0 '>
             <IoClose className='text-3xl cursor-pointer' onClick={() => setMenu(false)}/>
 
             {navLinks.map((d,i)=> {
-                return  <Link key={i} href={d.link} className='text-2xl font-bold hover:bg-slate-400 rounded w-fit p-4'>{d.title}</Link>
+                return  <Link key={i} href={d.link} className='text-2xl font-bold hover:bg-black rounded transition-all duration-75 w-fit p-4'>{d.title}</Link>
             })}
            
            
