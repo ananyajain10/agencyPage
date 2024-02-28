@@ -3,6 +3,20 @@ import React from "react";
 import {motion  } from 'framer-motion'
 
 const About = () => {
+  const cardVariants =  {
+    offscreen: {
+      y: 300
+    },
+    onscreen: {
+      y: 50,
+      
+      transition: {
+        type: "spring",
+        bounce: 0.3,
+        duration: 0.8
+      }
+    }
+  };
   
   const AssistanceWays = [
     {
@@ -31,8 +45,10 @@ const About = () => {
       <div className=" font-sans container flex flex-col px-4 mx-auto  space-y-12 md:space-y-0 md:flex-row">
         <div className="flex flex-col space-y-12 md:w-1/2">
           <motion.h2 
-           initial={{ opacity: 0 }}
-           whileInView={{ opacity: 1 }}
+          initial="offscreen"
+          whileInView="onscreen"
+          viewport={{ once: true, amount: 0.8 }}
+          variants={cardVariants}
           className="text-4xl font-bold text-center mx-w-md md:text-left">
             Learn how we will help you to reach your goals
           </motion.h2>
