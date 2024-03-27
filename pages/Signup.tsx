@@ -3,10 +3,10 @@ import React, { useState, useRef } from 'react'
 import { FidgetSpinner } from 'react-loader-spinner';
 import style from '../../../../assets/stylesheets/signup.module.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../../../redux/actions/authSlice';
+import { registerUser } from '../src/app/redux/actions/authSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import store from '../../../redux/store'
+import store from '../src/app/redux/store'
 
 const SignUp = () => {
 

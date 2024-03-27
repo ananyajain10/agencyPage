@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import style from '../../../../assets/stylesheets/login.module.css';
+import style from '../../src/assets/stylesheets/login.module.css';
 import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../../redux/actions/authSlice";
-import { useDispatch, useSelector } from "react-redux";
+import { loginUser } from "../../src/app/redux/actions/authSlice";
+import { useDispatch, useSelector, Provider } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import { FidgetSpinner } from 'react-loader-spinner';
 import 'react-toastify/dist/ReactToastify.css';
+import store from '../../src/app/redux/store';
+import { useRouter } from 'next/router';
 
 const Login = () => {
 
@@ -13,9 +15,10 @@ const Login = () => {
   const loading = useSelector((state) => state.auth.loading);
 
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
 
-  const navigate = useNavigate();
+  const router = useRouter();
 
   const dispatch = useDispatch();
 
@@ -32,9 +35,8 @@ const Login = () => {
         } else {
             toast.success('Logged in successfully');
             setTimeout(() => {
-              navigate('/');
-            }, 1000);
-            
+              router.push('/');
+            }, 1000); 
         }
       } else {
         toast.error('Please fill in all fields');
@@ -42,6 +44,7 @@ const Login = () => {
   }
 
   }
+
   return (
     <>
     {loading && (
@@ -52,7 +55,7 @@ const Login = () => {
   )}
     <div className={`${style.login_container} p-5 `}>
       <form
-        className={`${style.login_form}  p-5 flex flex-col sm:w-1/2 md:w-1/3 space-y-10`}
+        className={`${style.login_form} p-5 flex flex-col sm:w-1/2 md:w-1/3 space-y-10`}
         onSubmit={(e) => handleSubmit(e)}
       >
          <ToastContainer />
@@ -68,7 +71,6 @@ const Login = () => {
           />
            <small className='text-rose-500' id='email-error'></small>
         </label>
-
 
         <label htmlFor="password">
           <input
@@ -88,10 +90,17 @@ const Login = () => {
         />
       </form>
 
-      <p className="text-center absolute">Don't have an account? <a href="/sign_up">Sign Up</a></p>
+      <p className="text-center absolute">Don&apos;t have an account? <a href="/sign_up">Sign Up</a></p>
     </div>
     </>
+    
   );
 };
 
-export default Login;
+const LoginPage = () => (
+  <Provider store={store}>
+    <Login />
+  </Provider>
+);
+
+export default LoginPage;
