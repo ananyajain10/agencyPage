@@ -5,6 +5,7 @@ const config: Config = {
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -15,15 +16,14 @@ const config: Config = {
       },
       keyframes: {
         colorChange: {
-          '0%': { backgroundColor: '#4F46E5' }, // Start color
-          '50%': { backgroundColor: '#FA9E0D' }, // Mid color
-          '100%': { backgroundColor: '#38BDF8' }, // End color
+          '0%': { backgroundColor: '#4F46E5' },
+          '50%': { backgroundColor: '#FA9E0D' },
+          '100%': { backgroundColor: '#38BDF8' },
         },
       },
     },
   },
   plugins: [],
 };
-
 
 export default config;
