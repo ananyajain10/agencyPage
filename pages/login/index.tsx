@@ -1,13 +1,15 @@
 import React, { useState } from "react";
 import style from '../../src/assets/stylesheets/login.module.css';
-import { Link, useNavigate } from "react-router-dom";
-import { loginUser } from "../../src/app/redux/actions/authSlice";
+import { useNavigate } from "react-router-dom";
+import { loginAdmin } from "../../src/app/redux/actions/authSlice";
 import { useDispatch, useSelector, Provider } from "react-redux";
 import { ToastContainer, toast } from 'react-toastify';
 import { FidgetSpinner } from 'react-loader-spinner';
 import 'react-toastify/dist/ReactToastify.css';
 import store from '../../src/app/redux/store';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
+import '../../src/app/globals.css';
 
 const Login = () => {
 
@@ -28,7 +30,7 @@ const Login = () => {
     
     if (email && password) {
           
-        const response = await dispatch(loginUser({ email, password }));
+        const response = await dispatch(loginAdmin({ email, password }));
           // Assuming userInfo is part of the response object
         if (response.error) {
           toast.error('Invalid email or password');
@@ -90,7 +92,7 @@ const Login = () => {
         />
       </form>
 
-      <p className="text-center absolute">Don&apos;t have an account? <a href="/sign_up">Sign Up</a></p>
+      <p className="text-center absolute w-full mt-3">Don&apos;t have an account? <Link href="/signup">Sign Up</Link></p>
     </div>
     </>
     

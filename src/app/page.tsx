@@ -7,7 +7,7 @@ import About from "./components/About";
 import Footer from "./components/Footer";
 import Testimonial from "./components/Testimonial";
 import store from './redux/store';
-import SignUp from '../../pages/Signup'
+import SignUp from '../../pages/signup'
 import Login from '../../pages/login'
 import { Routes, Route, BrowserRouter as Router} from 'react-router-dom';
 
